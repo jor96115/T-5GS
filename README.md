@@ -24,9 +24,10 @@ The R-5GS testbed consists of:
 | VM3 | H-PLMN | Open5GS (AMF, SMF, UPF, SEPP, etc.) |
 | VM4 | IPX | Simulated IPX router with iproute2 |
 
+Each PLMN is assigned a subnet(`Internal-LAN-1`-`Internal-LAN-2`) to forward 5G roaming traffic. 
+
 Each VM is assigned a dedicated NAT gateway (`pnet1`–`pnet4`) to ensure isolation between different vendors.
 
-Each PLMN is assigned a network segmentaiton(`Internal-LAN-1`-`Internal-LAN-2`) to forward 5G roaming traffic. 
 
 ![Network Topology](./docs/topo.jpg)
 
