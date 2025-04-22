@@ -99,6 +99,106 @@ If you want to run the testbed immediately without rebuilding everything:
     cd PacketRusher
     sudo ./packetrusher ue
     ```
+11. If the info shows like below, denoting that the system is built successfully
+
+    ```bash
+    INFO[0000] Selecting 192.168.50.185 for host 192.168.50.185 as AMF's IP address 
+    INFO[0000] Selecting 192.168.50.190 for host 192.168.50.190 as gNodeB's N3/Data IP address 
+    INFO[0000] Selecting 192.168.50.190 for host 192.168.50.190 as gNodeB's N2/Control IP address 
+    INFO[0000] Loaded config at: /home/ubuntu/PacketRusher/config/config.yml 
+    INFO[0000] PacketRusher version 1.0.1                   
+    INFO[0000] ---------------------------------------      
+    INFO[0000] [TESTER] Starting test function: Testing an ue attached with configuration 
+    INFO[0000] [TESTER][UE] Number of UEs: 1                
+    INFO[0000] [TESTER][UE] disableTunnel is false          
+    INFO[0000] [TESTER][GNB] Control interface IP/Port: 192.168.50.190/9487~ 
+    INFO[0000] [TESTER][GNB] Data interface IP/Port: 192.168.50.190/2152 
+    INFO[0000] [TESTER][AMF] AMF IP/Port: 192.168.50.185/38412 
+    INFO[0000] ---------------------------------------      
+    INFO[0000] [GNB] SCTP/NGAP service is running           
+    INFO[0000] [GNB] Initiating NG Setup Request            
+    INFO[0000] [GNB][SCTP] Receive message in 0 stream      
+    INFO[0000] [GNB][NGAP] Receive NG Setup Response        
+    INFO[0000] [GNB][AMF] AMF Name: open5gs-amf0            
+    INFO[0000] [GNB][AMF] State of AMF: Active              
+    INFO[0000] [GNB][AMF] Capacity of AMF: 255              
+    INFO[0000] [GNB][AMF] PLMNs Identities Supported by AMF -- mcc: 001 mnc:01 
+    INFO[0000] [GNB][AMF] List of AMF slices Supported by AMF -- sst:01 sd:was not informed 
+    INFO[0001] [TESTER] TESTING REGISTRATION USING IMSI 0000071624 UE 
+    INFO[0001] [GNB] Received incoming connection from new UE 
+    INFO[0001] [UE] Initiating Registration                 
+    INFO[0001] [UE] Switched from state 0 to state 1        
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
+    INFO[0001] [UE][NAS] Message without security header    
+    INFO[0001] [UE][NAS] Receive Authentication Request     
+    INFO[0001] [UE][NAS][MAC] Authenticity of the authentication request message: OK 
+    INFO[0001] [UE][NAS][SQN] SQN of the authentication request message: VALID 
+    INFO[0001] [UE][NAS] Send authentication response       
+    INFO[0001] [UE] Switched from state 1 to state 2        
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and with NEW 5G NAS SECURITY CONTEXT 
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive Security Mode Command      
+    INFO[0001] [UE][NAS] Type of ciphering algorithm is 5G-EA0 
+    INFO[0001] [UE][NAS] Type of integrity protection algorithm is 128-5G-IA2 
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Initial Context Setup Request 
+    INFO[0001] [GNB][UE] UE Context was created with successful 
+    INFO[0001] [GNB][UE] UE RAN ID 1                        
+    INFO[0001] [GNB][UE] UE AMF ID 1                        
+    INFO[0001] [GNB][UE] UE Mobility Restrict --Plmn-- Mcc: not informed Mnc: not informed 
+    INFO[0001] [GNB][UE] UE Masked Imeisv: 1110000000ffff00 
+    INFO[0001] [GNB][UE] Allowed Nssai-- Sst: [01] Sd: [not informed] 
+    INFO[0001] [GNB][NGAP][AMF] Send Initial Context Setup Response. 
+    INFO[0001] [GNB] Initiating Initial Context Setup Response 
+    INFO[0001] [GNB][NGAP] No PDU Session to set up in InitialContextSetupResponse. 
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and ciphered 
+    INFO[0001] [UE][NAS] successful NAS CIPHERING           
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive Registration Accept        
+    INFO[0001] [UE][NAS] UE 5G GUTI: &{119 11 [242 0 241 16 2 0 64 192 0 6 43]} 
+    INFO[0001] [UE] Switched from state 2 to state 3        
+    INFO[0001] [UE] Initiating New PDU Session              
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and ciphered 
+    INFO[0001] [UE][NAS] successful NAS CIPHERING           
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive Configuration Update Command 
+    INFO[0001] [UE] Initiating Configuration Update Complete 
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive PDU Session Resource Setup Request 
+    INFO[0001] [GNB][NGAP][UE] PDU Session was created with successful. 
+    INFO[0001] [GNB][NGAP][UE] PDU Session Id: 1            
+    INFO[0001] [GNB][NGAP][UE] NSSAI Selected --- sst: NSSAI was not selected sd: NSSAI was not selected 
+    INFO[0001] [GNB][NGAP][UE] PDU Session Type: ipv4       
+    INFO[0001] [GNB][NGAP][UE] QOS Flow Identifier: 1       
+    INFO[0001] [GNB][NGAP][UE] Uplink Teid: 63941           
+    INFO[0001] [GNB][NGAP][UE] Downlink Teid: 1             
+    INFO[0001] [GNB][NGAP][UE] Non-Dynamic-5QI: 9           
+    INFO[0001] [GNB][NGAP][UE] Priority Level ARP: 8        
+    INFO[0001] [GNB][NGAP][UE] UPF Address: 192.168.50.187 :2152 
+    INFO[0001] [GNB] Initiating PDU Session Resource Setup Response 
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and ciphered 
+    INFO[0001] [UE][NAS] successful NAS CIPHERING           
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive DL NAS Transport           
+    INFO[0001] [UE][NAS] Receiving PDU Session Establishment Accept 
+    INFO[0001] [UE][NAS] PDU session QoS RULES: [1 0 6 49 49 1 1 255 1] 
+    INFO[0001] [UE][NAS] PDU session DNN: internet          
+    INFO[0001] [UE][NAS] PDU session NSSAI -- sst: 1 sd: 000 
+    INFO[0001] [UE][NAS] PDU address received: 10.45.0.2    
+    INFO[0002] [UE][GTP] Interface val0000071624 has successfully been configured for UE 10.45.0.2 
+    INFO[0002] [UE][GTP] You can do traffic for this UE using VRF vrf0000071624, eg: 
+    INFO[0002] [UE][GTP] sudo ip vrf exec vrf0000071624 iperf3 -c IPERF_SERVER -p PORT -t 9000
+    ```
+
 
 -------
 
@@ -257,6 +357,105 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
     ### initiate ue registration and PDU session
     cd PacketRusher
     sudo ./packetrusher ue
+    ```
+14. If the info shows like below, denoting that the system is built successfully
+
+    ```bash
+    INFO[0000] Selecting 192.168.50.185 for host 192.168.50.185 as AMF's IP address 
+    INFO[0000] Selecting 192.168.50.190 for host 192.168.50.190 as gNodeB's N3/Data IP address 
+    INFO[0000] Selecting 192.168.50.190 for host 192.168.50.190 as gNodeB's N2/Control IP address 
+    INFO[0000] Loaded config at: /home/ubuntu/PacketRusher/config/config.yml 
+    INFO[0000] PacketRusher version 1.0.1                   
+    INFO[0000] ---------------------------------------      
+    INFO[0000] [TESTER] Starting test function: Testing an ue attached with configuration 
+    INFO[0000] [TESTER][UE] Number of UEs: 1                
+    INFO[0000] [TESTER][UE] disableTunnel is false          
+    INFO[0000] [TESTER][GNB] Control interface IP/Port: 192.168.50.190/9487~ 
+    INFO[0000] [TESTER][GNB] Data interface IP/Port: 192.168.50.190/2152 
+    INFO[0000] [TESTER][AMF] AMF IP/Port: 192.168.50.185/38412 
+    INFO[0000] ---------------------------------------      
+    INFO[0000] [GNB] SCTP/NGAP service is running           
+    INFO[0000] [GNB] Initiating NG Setup Request            
+    INFO[0000] [GNB][SCTP] Receive message in 0 stream      
+    INFO[0000] [GNB][NGAP] Receive NG Setup Response        
+    INFO[0000] [GNB][AMF] AMF Name: open5gs-amf0            
+    INFO[0000] [GNB][AMF] State of AMF: Active              
+    INFO[0000] [GNB][AMF] Capacity of AMF: 255              
+    INFO[0000] [GNB][AMF] PLMNs Identities Supported by AMF -- mcc: 001 mnc:01 
+    INFO[0000] [GNB][AMF] List of AMF slices Supported by AMF -- sst:01 sd:was not informed 
+    INFO[0001] [TESTER] TESTING REGISTRATION USING IMSI 0000071624 UE 
+    INFO[0001] [GNB] Received incoming connection from new UE 
+    INFO[0001] [UE] Initiating Registration                 
+    INFO[0001] [UE] Switched from state 0 to state 1        
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
+    INFO[0001] [UE][NAS] Message without security header    
+    INFO[0001] [UE][NAS] Receive Authentication Request     
+    INFO[0001] [UE][NAS][MAC] Authenticity of the authentication request message: OK 
+    INFO[0001] [UE][NAS][SQN] SQN of the authentication request message: VALID 
+    INFO[0001] [UE][NAS] Send authentication response       
+    INFO[0001] [UE] Switched from state 1 to state 2        
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and with NEW 5G NAS SECURITY CONTEXT 
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive Security Mode Command      
+    INFO[0001] [UE][NAS] Type of ciphering algorithm is 5G-EA0 
+    INFO[0001] [UE][NAS] Type of integrity protection algorithm is 128-5G-IA2 
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Initial Context Setup Request 
+    INFO[0001] [GNB][UE] UE Context was created with successful 
+    INFO[0001] [GNB][UE] UE RAN ID 1                        
+    INFO[0001] [GNB][UE] UE AMF ID 1                        
+    INFO[0001] [GNB][UE] UE Mobility Restrict --Plmn-- Mcc: not informed Mnc: not informed 
+    INFO[0001] [GNB][UE] UE Masked Imeisv: 1110000000ffff00 
+    INFO[0001] [GNB][UE] Allowed Nssai-- Sst: [01] Sd: [not informed] 
+    INFO[0001] [GNB][NGAP][AMF] Send Initial Context Setup Response. 
+    INFO[0001] [GNB] Initiating Initial Context Setup Response 
+    INFO[0001] [GNB][NGAP] No PDU Session to set up in InitialContextSetupResponse. 
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and ciphered 
+    INFO[0001] [UE][NAS] successful NAS CIPHERING           
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive Registration Accept        
+    INFO[0001] [UE][NAS] UE 5G GUTI: &{119 11 [242 0 241 16 2 0 64 192 0 6 43]} 
+    INFO[0001] [UE] Switched from state 2 to state 3        
+    INFO[0001] [UE] Initiating New PDU Session              
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and ciphered 
+    INFO[0001] [UE][NAS] successful NAS CIPHERING           
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive Configuration Update Command 
+    INFO[0001] [UE] Initiating Configuration Update Complete 
+    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
+    INFO[0001] [GNB][NGAP] Receive PDU Session Resource Setup Request 
+    INFO[0001] [GNB][NGAP][UE] PDU Session was created with successful. 
+    INFO[0001] [GNB][NGAP][UE] PDU Session Id: 1            
+    INFO[0001] [GNB][NGAP][UE] NSSAI Selected --- sst: NSSAI was not selected sd: NSSAI was not selected 
+    INFO[0001] [GNB][NGAP][UE] PDU Session Type: ipv4       
+    INFO[0001] [GNB][NGAP][UE] QOS Flow Identifier: 1       
+    INFO[0001] [GNB][NGAP][UE] Uplink Teid: 63941           
+    INFO[0001] [GNB][NGAP][UE] Downlink Teid: 1             
+    INFO[0001] [GNB][NGAP][UE] Non-Dynamic-5QI: 9           
+    INFO[0001] [GNB][NGAP][UE] Priority Level ARP: 8        
+    INFO[0001] [GNB][NGAP][UE] UPF Address: 192.168.50.187 :2152 
+    INFO[0001] [GNB] Initiating PDU Session Resource Setup Response 
+    INFO[0001] [UE][NAS] Message with security header       
+    INFO[0001] [UE][NAS] Message with integrity and ciphered 
+    INFO[0001] [UE][NAS] successful NAS CIPHERING           
+    INFO[0001] [UE][NAS] successful NAS MAC verification    
+    INFO[0001] [UE][NAS] Receive DL NAS Transport           
+    INFO[0001] [UE][NAS] Receiving PDU Session Establishment Accept 
+    INFO[0001] [UE][NAS] PDU session QoS RULES: [1 0 6 49 49 1 1 255 1] 
+    INFO[0001] [UE][NAS] PDU session DNN: internet          
+    INFO[0001] [UE][NAS] PDU session NSSAI -- sst: 1 sd: 000 
+    INFO[0001] [UE][NAS] PDU address received: 10.45.0.2    
+    INFO[0002] [UE][GTP] Interface val0000071624 has successfully been configured for UE 10.45.0.2 
+    INFO[0002] [UE][GTP] You can do traffic for this UE using VRF vrf0000071624, eg: 
+    INFO[0002] [UE][GTP] sudo ip vrf exec vrf0000071624 iperf3 -c IPERF_SERVER -p PORT -t 9000
     ```
 
 
