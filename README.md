@@ -277,4 +277,13 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
 > 3. https://www.eve-ng.net/
 
 ## [6] FAQ
+#### Q1: How to fix `Intel vt-x/EPT cannot be activated` error when booting EVE-NG?
+#### A1: Follow the instruction below
 
+    ```bash
+    ### Go to windows feature and de-check Hyper-V
+    ### Launch powershell as admin and execute commands blew
+    bcdedit /set hypervisorlaunchtype off
+    Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+    ### Reboot your windows host and try again
+    ```
