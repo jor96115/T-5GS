@@ -39,14 +39,11 @@ We provide **two deployment methods** to suit different needs:
 
 If you want to run the testbed immediately without rebuilding everything:
 
-1. Download our prebuilt EVE-NG VM export from [Google Drive / GitHub Releases](#).
+1. Download our prebuilt EVE-NG VM export from [Google Drive](https://drive.google.com/file/d/1wKQYs--OQn9XEg68P6qQnO_OdGcTWo4R/view?usp=sharing).
 2. Import the `.ovf` into VMware Workstation or ESXi.
 3. Boot the EVE-NG VM and log in.
 4. Open the EVE-NG web GUI → Import the provided `.unl` topology.
 5. Start all nodes and run the init scripts inside each VM.
-
-> Fastest way to launch ROAM5GS.  
-> Best for running experiments without setup effort.
 
 ----
 
