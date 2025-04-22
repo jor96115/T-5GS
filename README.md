@@ -271,6 +271,10 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
 | linux-vm3-hplmn-open5gs | user | user |
 | linux-vm4-router | user | user |
 
+## [5] References
+> 1. https://github.com/HewlettPackard/PacketRusher
+> 2. https://github.com/open5gs/open5gs
+> 3. https://www.eve-ng.net/
 
-## [5] FAQ
+## [6] FAQ
 
