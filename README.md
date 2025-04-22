@@ -15,7 +15,7 @@ R-5GS bridges this gap by offering a full-stack roaming environment—including 
 
 ## [2] Architecture Overview
 
-The ROAM5GS testbed consists of:
+The R-5GS testbed consists of:
 
 | VM | Role | Description |
 |----|------|-------------|
