@@ -2,6 +2,8 @@
 
 This repository provides the reproducible implementation of **R-5GS**, a full-scale, multi-operator 5G roaming testbed based on **Open5GS** and **PacketRusher**. The testbed is designed to go beyond core-level simulation by enabling realistic, end-to-end roaming evaluation across UE, RAN, and Core Network layers. This platform serves both research and education purposes in mobile networking, security, and inter-PLMN interoperability.
 
+![System_Design](./docs/system_design.jpg)
+
 ## [1] Motivation
 
 While roaming is a pivotal element in 5G system architecture, current open-source platforms fall short in fully supporting cross-PLMN evaluation. In particular:
