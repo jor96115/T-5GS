@@ -277,8 +277,10 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
 > 3. https://www.eve-ng.net/
 
 ## [6] FAQ
-#### Q1: How to fix `Intel vt-x/EPT cannot be activated` error when booting EVE-NG?
-#### A1: Follow the instruction below
+
+- Q1: How to fix `Intel vt-x/EPT cannot be activated` error when booting EVE-NG?
+
+- A1: Follow the instruction below
 
     ```bash
     ### Go to windows feature and de-check Hyper-V
@@ -287,14 +289,3 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
     Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
     ### Reboot your windows host and try again
     ```
-
-    ```bash
-    ### lookup the network interface used by the NAT mode of VMware on your windows host(usually VMnet8)
-    ipconfig
-
-    ### config the eve-ng to that subnet
-    ### edit the 'pnet0' network configuration and reboot
-    sudo nano /etc/network/interfaces
-    sudo reboot
-    ```
-
