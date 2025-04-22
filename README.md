@@ -288,3 +288,13 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
     ### Reboot your windows host and try again
     ```
 
+    ```bash
+    ### lookup the network interface used by the NAT mode of VMware on your windows host(usually VMnet8)
+    ipconfig
+
+    ### config the eve-ng to that subnet
+    ### edit the 'pnet0' network configuration and reboot
+    sudo nano /etc/network/interfaces
+    sudo reboot
+    ```
+
