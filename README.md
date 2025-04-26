@@ -290,7 +290,7 @@ Each VM is assigned a dedicated NAT gateway (`pnet1`–`pnet4`) to ensure isolat
     INFO[0002] [UE][GTP] sudo ip vrf exec vrf0000071624 iperf3 -c IPERF_SERVER -p PORT -t 9000
     ```
 
-15. For demo traffic, please refer to [wireshark trace](./demo.pcap)
+15. For demo traffic, please refer to [wireshark trace](./demo.pcap).
 
 
 ## [4] Login Credential of each vm
