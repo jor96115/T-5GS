@@ -34,186 +34,15 @@ Each VM is assigned a dedicated NAT gateway (`pnet1`–`pnet4`) to ensure isolat
 ![Network Topology](./docs/topo.jpg)
 
 
-## [3] Deployment Options
+## [3] Deployment
 
-We provide **two deployment methods** to suit different needs:
-
-### [3-1] Requirements for Option 1
-
-- VMware Workstation 17 Pro - v17.5.0 
-
-### [3-2] Option 1: Quick Deployment (Prebuilt EVE-NG VM Export)
-
-If you want to run the testbed immediately without rebuilding everything:
-
-1. Download our prebuilt EVE-NG VM [[R-5GS.zip]](https://drive.google.com/file/d/1wKQYs--OQn9XEg68P6qQnO_OdGcTWo4R/view?usp=sharing).
-2. Extract zip file and import the `R-5GS.ovf` into VMware Workstation.
-3. Boot the `R-5GS` VM and log in.
-4. Configure the IP address used by EVE-NG to provide services via the command below.
-
-    ```bash
-    ### lookup the network interface used by the NAT mode of VMware on your windows host(usually VMnet8)
-    ipconfig
-
-    ### config the eve-ng to that subnet
-    ### edit the 'pnet0' network configuration and reboot
-    sudo nano /etc/network/interfaces
-    sudo reboot
-    ```
-5. Access EVE-NG via browser using `http://192.168.x.x` and execute R-5GS lab.
-6. Boot `linux-vm1-packetrusher` and execute the command below.
-
-    ```bash
-    ### initialize routing setup
-    cd Desktop
-    sudo bash routing_setup.sh
-    ```
-7. Boot `linux-vm2-vplmn-open5gs` and execute the command below.
-
-    ```bash
-    ### initialize routing setup
-    cd Desktop
-    sudo bash routing_setup.sh
-
-    ### run VPLMN 5G core
-    sudo bash run_vplmn.sh
-    ```
-8. Boot `linux-vm3-hplmn-open5gs` and execute the command below.
-
-    ```bash
-    ### initialize routing setup
-    cd Desktop
-    sudo bash routing_setup.sh
-    
-    ### run HPLMN 5G core
-    sudo bash run_hplmn.sh
-    ```
-9. Boot `linux-vm4-router` and execute the command below.
-
-    ```bash
-    ### initialize routing setup
-    cd Desktop
-    sudo bash routing_setup.sh
-    ```
-10. Test validity via ue registration and PDU session establishment on `linux-vm1-packetrusher`.
-
-    ```bash
-    ### initiate ue registration and PDU session
-    cd PacketRusher
-    sudo ./packetrusher ue
-    ```
-11. If the info shows like below, denoting that the system is built successfully
-
-    ```bash
-    INFO[0000] Selecting 192.168.50.185 for host 192.168.50.185 as AMF's IP address 
-    INFO[0000] Selecting 192.168.50.190 for host 192.168.50.190 as gNodeB's N3/Data IP address 
-    INFO[0000] Selecting 192.168.50.190 for host 192.168.50.190 as gNodeB's N2/Control IP address 
-    INFO[0000] Loaded config at: /home/ubuntu/PacketRusher/config/config.yml 
-    INFO[0000] PacketRusher version 1.0.1                   
-    INFO[0000] ---------------------------------------      
-    INFO[0000] [TESTER] Starting test function: Testing an ue attached with configuration 
-    INFO[0000] [TESTER][UE] Number of UEs: 1                
-    INFO[0000] [TESTER][UE] disableTunnel is false          
-    INFO[0000] [TESTER][GNB] Control interface IP/Port: 192.168.50.190/9487~ 
-    INFO[0000] [TESTER][GNB] Data interface IP/Port: 192.168.50.190/2152 
-    INFO[0000] [TESTER][AMF] AMF IP/Port: 192.168.50.185/38412 
-    INFO[0000] ---------------------------------------      
-    INFO[0000] [GNB] SCTP/NGAP service is running           
-    INFO[0000] [GNB] Initiating NG Setup Request            
-    INFO[0000] [GNB][SCTP] Receive message in 0 stream      
-    INFO[0000] [GNB][NGAP] Receive NG Setup Response        
-    INFO[0000] [GNB][AMF] AMF Name: open5gs-amf0            
-    INFO[0000] [GNB][AMF] State of AMF: Active              
-    INFO[0000] [GNB][AMF] Capacity of AMF: 255              
-    INFO[0000] [GNB][AMF] PLMNs Identities Supported by AMF -- mcc: 001 mnc:01 
-    INFO[0000] [GNB][AMF] List of AMF slices Supported by AMF -- sst:01 sd:was not informed 
-    INFO[0001] [TESTER] TESTING REGISTRATION USING IMSI 0000071624 UE 
-    INFO[0001] [GNB] Received incoming connection from new UE 
-    INFO[0001] [UE] Initiating Registration                 
-    INFO[0001] [UE] Switched from state 0 to state 1        
-    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
-    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
-    INFO[0001] [UE][NAS] Message without security header    
-    INFO[0001] [UE][NAS] Receive Authentication Request     
-    INFO[0001] [UE][NAS][MAC] Authenticity of the authentication request message: OK 
-    INFO[0001] [UE][NAS][SQN] SQN of the authentication request message: VALID 
-    INFO[0001] [UE][NAS] Send authentication response       
-    INFO[0001] [UE] Switched from state 1 to state 2        
-    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
-    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
-    INFO[0001] [UE][NAS] Message with security header       
-    INFO[0001] [UE][NAS] Message with integrity and with NEW 5G NAS SECURITY CONTEXT 
-    INFO[0001] [UE][NAS] successful NAS MAC verification    
-    INFO[0001] [UE][NAS] Receive Security Mode Command      
-    INFO[0001] [UE][NAS] Type of ciphering algorithm is 5G-EA0 
-    INFO[0001] [UE][NAS] Type of integrity protection algorithm is 128-5G-IA2 
-    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
-    INFO[0001] [GNB][NGAP] Receive Initial Context Setup Request 
-    INFO[0001] [GNB][UE] UE Context was created with successful 
-    INFO[0001] [GNB][UE] UE RAN ID 1                        
-    INFO[0001] [GNB][UE] UE AMF ID 1                        
-    INFO[0001] [GNB][UE] UE Mobility Restrict --Plmn-- Mcc: not informed Mnc: not informed 
-    INFO[0001] [GNB][UE] UE Masked Imeisv: 1110000000ffff00 
-    INFO[0001] [GNB][UE] Allowed Nssai-- Sst: [01] Sd: [not informed] 
-    INFO[0001] [GNB][NGAP][AMF] Send Initial Context Setup Response. 
-    INFO[0001] [GNB] Initiating Initial Context Setup Response 
-    INFO[0001] [GNB][NGAP] No PDU Session to set up in InitialContextSetupResponse. 
-    INFO[0001] [UE][NAS] Message with security header       
-    INFO[0001] [UE][NAS] Message with integrity and ciphered 
-    INFO[0001] [UE][NAS] successful NAS CIPHERING           
-    INFO[0001] [UE][NAS] successful NAS MAC verification    
-    INFO[0001] [UE][NAS] Receive Registration Accept        
-    INFO[0001] [UE][NAS] UE 5G GUTI: &{119 11 [242 0 241 16 2 0 64 192 0 6 43]} 
-    INFO[0001] [UE] Switched from state 2 to state 3        
-    INFO[0001] [UE] Initiating New PDU Session              
-    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
-    INFO[0001] [GNB][NGAP] Receive Downlink NAS Transport   
-    INFO[0001] [UE][NAS] Message with security header       
-    INFO[0001] [UE][NAS] Message with integrity and ciphered 
-    INFO[0001] [UE][NAS] successful NAS CIPHERING           
-    INFO[0001] [UE][NAS] successful NAS MAC verification    
-    INFO[0001] [UE][NAS] Receive Configuration Update Command 
-    INFO[0001] [UE] Initiating Configuration Update Complete 
-    INFO[0001] [GNB][SCTP] Receive message in 1 stream      
-    INFO[0001] [GNB][NGAP] Receive PDU Session Resource Setup Request 
-    INFO[0001] [GNB][NGAP][UE] PDU Session was created with successful. 
-    INFO[0001] [GNB][NGAP][UE] PDU Session Id: 1            
-    INFO[0001] [GNB][NGAP][UE] NSSAI Selected --- sst: NSSAI was not selected sd: NSSAI was not selected 
-    INFO[0001] [GNB][NGAP][UE] PDU Session Type: ipv4       
-    INFO[0001] [GNB][NGAP][UE] QOS Flow Identifier: 1       
-    INFO[0001] [GNB][NGAP][UE] Uplink Teid: 63941           
-    INFO[0001] [GNB][NGAP][UE] Downlink Teid: 1             
-    INFO[0001] [GNB][NGAP][UE] Non-Dynamic-5QI: 9           
-    INFO[0001] [GNB][NGAP][UE] Priority Level ARP: 8        
-    INFO[0001] [GNB][NGAP][UE] UPF Address: 192.168.50.187 :2152 
-    INFO[0001] [GNB] Initiating PDU Session Resource Setup Response 
-    INFO[0001] [UE][NAS] Message with security header       
-    INFO[0001] [UE][NAS] Message with integrity and ciphered 
-    INFO[0001] [UE][NAS] successful NAS CIPHERING           
-    INFO[0001] [UE][NAS] successful NAS MAC verification    
-    INFO[0001] [UE][NAS] Receive DL NAS Transport           
-    INFO[0001] [UE][NAS] Receiving PDU Session Establishment Accept 
-    INFO[0001] [UE][NAS] PDU session QoS RULES: [1 0 6 49 49 1 1 255 1] 
-    INFO[0001] [UE][NAS] PDU session DNN: internet          
-    INFO[0001] [UE][NAS] PDU session NSSAI -- sst: 1 sd: 000 
-    INFO[0001] [UE][NAS] PDU address received: 10.45.0.2    
-    INFO[0002] [UE][GTP] Interface val0000071624 has successfully been configured for UE 10.45.0.2 
-    INFO[0002] [UE][GTP] You can do traffic for this UE using VRF vrf0000071624, eg: 
-    INFO[0002] [UE][GTP] sudo ip vrf exec vrf0000071624 iperf3 -c IPERF_SERVER -p PORT -t 9000
-    ```
-
-
--------
-
-### [3-3] Requirements for Option 2
+### [3-1] Requirements
 
 - VMware Workstation 17 Pro - v17.5.0
 
 - EVE-NG Community Edition - v6.2.0-4
 
-### [3-4] Option 2: Manual Deployment (Educational & Reproducible)
-
-If you'd like to **learn how to build the testbed from scratch** on your own EVE-NG installation:
+### [3-2] Steps
 
 1. Download our prebuilt topology document [[R-5GS.unl]](R-5GS.unl) and linux image [[linux-vm1-packetrusher]](https://drive.google.com/file/d/1vXR4MzqyJY_razetuwOhh9oUU38Sulz0/view?usp=sharing), [[linux-vm2-vplmn-open5gs]](https://drive.google.com/file/d/10lP_UaRAthMw_ExxIl1Og6qMD98oD-dF/view?usp=sharing), [[linux-vm3-hplmn-open5gs]](https://drive.google.com/file/d/1oF4sglrRK_iwkYKtBLmQCvMwDvTHtboG/view?usp=sharing), [[linux-vm4-router]](https://drive.google.com/file/d/1qx3zVZaPLwJT1rJLSbm3i7nVyqPbIIJR/view?usp=drive_link).
 2. If you're not yet installed EVE-NG, please refer to https://www.eve-ng.net/index.php/documentation/community-cookbook/ and install it.
@@ -466,8 +295,6 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
 
 | VM | username | password |
 |:----|:------:|:-------------:|
-| EVE-NG Host | root | eve |
-| EVE-NG Web APP | admin | eve |
 | linux-vm1-packetrusher | user | user |
 | linux-vm2-vplmn-open5gs | user | user |
 | linux-vm3-hplmn-open5gs | user | user |
@@ -515,4 +342,4 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
 
 - Q3: Why my Linux node cannot start successfully?
 
-- Q3: Make sure that the "Virtualize Intel VT-x/EPT or AMD-V/RVI." and "Virtualize IOMMU (IO memory management unit)." these two options are enabled in you're VMware Workstation setup.
+- A3: Make sure that the "Virtualize Intel VT-x/EPT or AMD-V/RVI." and "Virtualize IOMMU (IO memory management unit)." these two options are enabled in you're VMware Workstation setup.
