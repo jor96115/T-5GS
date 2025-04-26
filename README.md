@@ -342,4 +342,4 @@ Each VM is assigned a dedicated NAT gateway (`pnet1`–`pnet4`) to ensure isolat
 
 - Q3: Why my Linux node cannot start successfully?
 
-- A3: Make sure that the "Virtualize Intel VT-x/EPT or AMD-V/RVI." and "Virtualize IOMMU (IO memory management unit)." these two options are enabled in you're VMware Workstation setup.
+- A3: Make sure that "Virtualize Intel VT-x/EPT or AMD-V/RVI." and "Virtualize IOMMU (IO memory management unit)." these two options are enabled in you're VMware Workstation setup.
