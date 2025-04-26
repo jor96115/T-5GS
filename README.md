@@ -491,3 +491,28 @@ If you'd like to **learn how to build the testbed from scratch** on your own EVE
     Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
     ### Reboot your windows host and try again
     ```
+
+- Q2: How to fix `PHP warning` when running `/opt/unetlab/wrappers/unl_wrapper -a fixpermissions`?
+
+- A2: Follw the instruction below
+
+    ```bash
+    ### Check that the 71st line in the specified file (/opt/unetlab/html/includes/init.php) is such as: $kvm_family = file_get_contents("/opt/unetlab/platform"); If it's not, edit it to look like this.
+    sudo nano /opt/unetlab/html/includes/init.php
+
+    ### Check you're cpu type
+    dmesg | grep -i cpu | grep -i -e intel -e amd
+
+    ### If you're using intel cpu, run
+    echo "intel" > /opt/unetlab/platform
+
+    ### If you're using amd cpu, run
+    echo "amd" > /opt/unetlab/platform
+
+    ### Then you can try fixpermission command again, it should show any wraning message
+    /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+    ```
+
+- Q3: Why my Linux node cannot start successfully?
+
+- Q3: Make sure that the "Virtualize Intel VT-x/EPT or AMD-V/RVI." and "Virtualize IOMMU (IO memory management unit)." these two options are enabled in you're VMware Workstation setup.
