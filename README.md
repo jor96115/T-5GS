@@ -1,6 +1,6 @@
-# R-5GS: A Full-Scale 5G Roaming Testbed on EVE-NG
+# T-5GS: A Full-Scale 5G Roaming Testbed on EVE-NG
 
-This repository provides the reproducible implementation of **R-5GS**, a full-scale, multi-operator 5G roaming testbed based on **Open5GS** and **PacketRusher**. The testbed is designed to go beyond core-level simulation by enabling realistic, end-to-end roaming evaluation across UE, RAN, and Core Network layers. This platform serves both research and education purposes in mobile networking, security, and inter-PLMN interoperability.
+This repository provides the reproducible implementation of **T-5GS**(Truth 5G System), a full-scale, multi-operator 5G roaming testbed based on **Open5GS** and **PacketRusher**. The testbed is designed to go beyond core-level simulation by enabling realistic, end-to-end roaming evaluation across UE, RAN, and Core Network layers. This platform serves both research and education purposes in mobile networking, security, and inter-PLMN interoperability.
 
 ![System_Design](./docs/system_design.jpg)
 
@@ -12,12 +12,12 @@ While roaming is a pivotal element in 5G system architecture, current open-sourc
 - **UERANSIM** and **OpenAirInterface** lack proper roaming-capable UE/RAN simulation.
 - Most existing setups simulate only core-level roaming.
 
-R-5GS bridges this gap by offering a full-stack roaming environment—including **UE registration, PDU session establishment, and inter-PLMN SBA signaling via N32**.
+T-5GS bridges this gap by offering a full-stack roaming environment—including **UE registration, PDU session establishment, and inter-PLMN SBA signaling via N32**.
 
 
 ## [2] Architecture Overview
 
-The R-5GS testbed consists of:
+The T-5GS testbed consists of:
 
 | VM | Role | Description |
 |----|------|-------------|
